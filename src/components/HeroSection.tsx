@@ -74,9 +74,7 @@ const HeroSection = () => {
       }} transition={{
         duration: 0.6,
         delay: 0.6
-      }} className="font-display text-2xl md:text-3xl text-foreground/90 mb-2 italic">
-          "The Director's Cut"
-        </motion.p>
+      }} className="font-display text-2xl md:text-3xl text-foreground/90 mb-2 italic">"The Director's Cut"</motion.p>
         <motion.p initial={{
         opacity: 0,
         y: 20
@@ -87,8 +85,7 @@ const HeroSection = () => {
         duration: 0.6,
         delay: 0.7
       }} className="font-heading text-lg text-muted-foreground mb-8 font-bold">
-          The Entrepreneurial Blockbuster of the Year
-        </motion.p>
+      </motion.p>
 
         {/* Date - Movie Release Style */}
         <motion.div initial={{
