@@ -99,7 +99,7 @@ const DeHackSection = () => {
                 delay: 0.5
               }}>
                   <p className="text-velvet-bright uppercase tracking-wider mb-1">FADE IN:</p>
-                  <p className="italic">BITS PILANI CAMPUS - NIGHT</p>
+                  <p className="italic">INT. BITS PILANI CAMPUS - NIGHT</p>
                 </motion.div>
                 
                 <motion.div initial={{
