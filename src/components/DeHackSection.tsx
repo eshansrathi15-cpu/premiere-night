@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Code, Cpu, Clock, Users } from "lucide-react";
+import { Clapperboard, Clock, Users, Award, Zap } from "lucide-react";
 import dehackBg from "@/assets/dehack-bg.jpg";
 
 const DeHackSection = () => {
@@ -8,22 +8,13 @@ const DeHackSection = () => {
     <section id="dehack" className="relative py-24 overflow-hidden">
       {/* Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-30"
+        className="absolute inset-0 bg-cover bg-center opacity-40"
         style={{ backgroundImage: `url(${dehackBg})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background" />
 
-      {/* Animated Circuit Lines */}
-      <div className="absolute inset-0 circuit-bg" />
-
-      {/* Scan Line Effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ y: ["0%", "100%"] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-glow/50 to-transparent"
-        />
-      </div>
+      {/* Curtain Effect */}
+      <div className="absolute inset-0 curtain-bg" />
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -35,49 +26,47 @@ const DeHackSection = () => {
             transition={{ duration: 0.8 }}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-glow/10 border border-cyan-glow/30 rounded-full mb-6">
-              <span className="w-2 h-2 bg-cyan-glow rounded-full animate-pulse" />
-              <span className="font-heading text-sm text-cyan-glow uppercase tracking-widest">
-                Day 2 - Day 6
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-velvet/20 border border-velvet-bright/30 rounded-full mb-6">
+              <Clapperboard className="w-4 h-4 text-velvet-bright" />
+              <span className="font-heading text-sm text-velvet-bright uppercase tracking-[0.2em]">
+                Scenes 2-6 • The Feature Film
               </span>
             </div>
 
             {/* Title */}
-            <h2 className="font-display text-5xl md:text-6xl font-black mb-4">
-              <span className="text-cyan-glow text-glow-strong glitch" data-text="DeHack">
-                DeHack
-              </span>
+            <h2 className="font-display text-5xl md:text-6xl font-bold mb-4 tracking-wide">
+              <span className="text-velvet-bright">DeHack</span>
             </h2>
-            <p className="font-display text-2xl text-foreground/80 mb-2">
+            <p className="font-display text-2xl text-foreground/80 mb-2 italic">
               Desert Hack
             </p>
-            <p className="font-heading text-xl text-muted-foreground mb-8">
-              "Build your ideas from scratch, on campus."
+            <p className="font-heading text-xl text-gold mb-8">
+              "Build your ideas from scratch. No scripts. No stunt doubles."
             </p>
 
             {/* Description */}
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              The ultimate 120-hour hackathon challenge. No scripts. No shortcuts. 
-              Just you, your team, and the limitless possibilities of innovation. 
-              Transform your boldest ideas into reality while competing for glory 
-              and life-changing prizes.
+            <p className="text-muted-foreground mb-8 leading-relaxed font-heading">
+              The ultimate 120-hour hackathon saga. Like the greatest thrillers, 
+              every moment counts. Your team writes the screenplay, directs the action, 
+              and delivers a blockbuster innovation that leaves the audience speechless.
             </p>
 
-            {/* Stats */}
+            {/* Stats - Movie Style */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-              <StatCard icon={Clock} value="120" label="Hours" />
-              <StatCard icon={Users} value="500+" label="Hackers" />
-              <StatCard icon={Code} value="50+" label="Projects" />
-              <StatCard icon={Cpu} value="₹5L+" label="Prizes" />
+              <StatCard icon={Clock} value="120" label="Hours" subtitle="Runtime" />
+              <StatCard icon={Users} value="500+" label="Cast" subtitle="Members" />
+              <StatCard icon={Zap} value="50+" label="Projects" subtitle="Productions" />
+              <StatCard icon={Award} value="₹5L+" label="Awards" subtitle="Prize Pool" />
             </div>
 
             {/* CTA */}
-            <Button variant="glitch" size="xl">
-              Register for DeHack
+            <Button variant="premiere" size="xl">
+              <Clapperboard className="w-5 h-5" />
+              Join the Production
             </Button>
           </motion.div>
 
-          {/* Visual Element */}
+          {/* Visual Element - Director's Chair Style */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -85,80 +74,68 @@ const DeHackSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden lg:block"
           >
-            {/* Glowing Terminal Window */}
-            <div className="relative bg-card/80 border-2 border-cyan-glow/30 rounded-lg p-6 shadow-glow backdrop-blur-sm">
-              {/* Terminal Header */}
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-3 h-3 rounded-full bg-accent-red" />
-                <div className="w-3 h-3 rounded-full bg-accent-yellow" />
-                <div className="w-3 h-3 rounded-full bg-accent-green" />
-                <span className="ml-4 font-mono text-sm text-muted-foreground">
-                  dehack@bits-pilani:~
-                </span>
+            {/* Movie Script Card */}
+            <div className="relative bg-card/80 border-2 border-velvet-bright/30 rounded-lg p-6 shadow-glow-red backdrop-blur-sm">
+              {/* Script Header */}
+              <div className="text-center mb-6 pb-4 border-b border-border">
+                <p className="font-display text-sm text-velvet-bright tracking-[0.3em] uppercase">
+                  Desert Hack Productions
+                </p>
+                <h3 className="font-display text-2xl text-foreground mt-2">
+                  SCREENPLAY
+                </h3>
               </div>
 
-              {/* Terminal Content */}
-              <div className="font-mono text-sm space-y-2">
+              {/* Script Content */}
+              <div className="font-heading text-sm space-y-4 text-muted-foreground">
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-cyan-glow"
                 >
-                  $ ./start_hackathon.sh
+                  <p className="text-velvet-bright uppercase tracking-wider mb-1">FADE IN:</p>
+                  <p className="italic">INT. BITS PILANI CAMPUS - NIGHT</p>
                 </motion.div>
+                
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
-                  className="text-muted-foreground"
                 >
-                  Initializing DeHack 2026...
+                  <p>500 DEVELOPERS gather in the auditorium. Laptops glow in the darkness.</p>
                 </motion.div>
+
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 1.1 }}
-                  className="text-accent-green"
                 >
-                  ✓ Loading creative environment
+                  <p className="text-gold uppercase tracking-wider">DIRECTOR (V.O.)</p>
+                  <p className="italic pl-4">The clock starts now. You have 120 hours to change the world.</p>
                 </motion.div>
+
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 1.4 }}
-                  className="text-accent-green"
+                  className="pt-4 border-t border-border"
                 >
-                  ✓ Connecting 500+ innovators
+                  <p className="text-velvet-bright">CUT TO:</p>
+                  <p className="italic">Your innovation taking center stage...</p>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 1.7 }}
-                  className="text-accent-green"
-                >
-                  ✓ Unlocking unlimited potential
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 2 }}
-                  className="text-accent-yellow"
-                >
-                  Ready to hack the future? [Y/n]
-                </motion.div>
+
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [1, 0, 1] }}
-                  transition={{ delay: 2.3, repeat: Infinity, duration: 1 }}
-                  className="inline-block w-3 h-5 bg-cyan-glow"
+                  transition={{ delay: 1.7, repeat: Infinity, duration: 1 }}
+                  className="inline-block w-3 h-5 bg-velvet-bright"
                 />
               </div>
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-cyan-glow/20 rounded-lg animate-pulse" />
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-cyan-glow/10 rounded-lg animate-float" />
+            <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-velvet-bright/20 rounded-lg" />
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-velvet/20 rounded-lg animate-float" />
           </motion.div>
         </div>
       </div>
@@ -166,11 +143,11 @@ const DeHackSection = () => {
   );
 };
 
-const StatCard = ({ icon: Icon, value, label }: { icon: any; value: string; label: string }) => (
-  <div className="text-center p-4 bg-card/50 border border-cyan-glow/20 rounded-lg backdrop-blur-sm hover:border-cyan-glow/50 transition-colors">
-    <Icon className="w-6 h-6 text-cyan-glow mx-auto mb-2" />
+const StatCard = ({ icon: Icon, value, label, subtitle }: { icon: any; value: string; label: string; subtitle: string }) => (
+  <div className="text-center p-4 bg-card/50 border border-velvet-bright/20 rounded-lg backdrop-blur-sm hover:border-velvet-bright/50 transition-colors">
+    <Icon className="w-5 h-5 text-velvet-bright mx-auto mb-2" />
     <div className="font-display text-2xl font-bold text-foreground">{value}</div>
-    <div className="font-heading text-sm text-muted-foreground">{label}</div>
+    <div className="font-heading text-xs text-muted-foreground uppercase tracking-wider">{subtitle}</div>
   </div>
 );
 

@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Orbitron', 'sans-serif'],
-        heading: ['Rajdhani', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['Cinzel', 'serif'],
+        heading: ['Raleway', 'sans-serif'],
+        body: ['Raleway', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -62,17 +62,25 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // E-Week Custom Colors
+        // E-Week Cinema Colors
         navy: {
           deep: "hsl(var(--navy-deep))",
           mid: "hsl(var(--navy-mid))",
           light: "hsl(var(--navy-light))",
         },
-        cyan: {
-          glow: "hsl(var(--cyan-glow))",
-          bright: "hsl(var(--cyan-bright))",
-          soft: "hsl(var(--cyan-soft))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          bright: "hsl(var(--gold-bright))",
+          soft: "hsl(var(--gold-soft))",
         },
+        velvet: {
+          DEFAULT: "hsl(var(--velvet))",
+          bright: "hsl(var(--velvet-bright))",
+        },
+        // Legacy compatibility
+        "cyan-glow": "hsl(var(--gold))",
+        "cyan-bright": "hsl(var(--gold-bright))",
+        "cyan-soft": "hsl(var(--gold-soft))",
         "accent-red": "hsl(var(--accent-red))",
         "accent-yellow": "hsl(var(--accent-yellow))",
         "accent-green": "hsl(var(--accent-green))",
@@ -115,12 +123,12 @@ export default {
           "100%": { opacity: "1", transform: "scale(1)" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--cyan-glow) / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(var(--cyan-glow) / 0.6), 0 0 80px hsl(var(--cyan-glow) / 0.3)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--gold) / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(var(--gold) / 0.6), 0 0 80px hsl(var(--gold) / 0.3)" },
         },
         "border-glow": {
-          "0%, 100%": { borderColor: "hsl(var(--cyan-glow) / 0.5)" },
-          "50%": { borderColor: "hsl(var(--cyan-glow))" },
+          "0%, 100%": { borderColor: "hsl(var(--gold) / 0.5)" },
+          "50%": { borderColor: "hsl(var(--gold))" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
@@ -133,6 +141,13 @@ export default {
         "rotate-slow": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        flicker: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.95" },
+          "52%": { opacity: "1" },
+          "54%": { opacity: "0.9" },
+          "56%": { opacity: "1" },
         },
       },
       animation: {
@@ -147,13 +162,14 @@ export default {
         shimmer: "shimmer 2s linear infinite",
         float: "float 6s ease-in-out infinite",
         "rotate-slow": "rotate-slow 20s linear infinite",
+        flicker: "flicker 3s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-gradient": "var(--gradient-hero)",
-        "cyan-gradient": "var(--gradient-cyan)",
-        "warm-gradient": "var(--gradient-warm)",
+        "gold-gradient": "var(--gradient-gold)",
+        "velvet-gradient": "var(--gradient-velvet)",
       },
     },
   },
