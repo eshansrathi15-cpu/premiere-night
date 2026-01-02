@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,82 +6,89 @@
 
 @layer base {
   :root {
-    /* Core Cinema Colors */
-    --background: 215 55% 12%;
-    --foreground: 186 70% 90%;
+    /* Core Cinema Colors - Warm Hollywood */
+    --background: 220 25% 8%;
+    --foreground: 40 30% 95%;
 
-    --card: 215 50% 15%;
-    --card-foreground: 186 70% 90%;
+    --card: 220 20% 12%;
+    --card-foreground: 40 30% 95%;
 
-    --popover: 215 55% 12%;
-    --popover-foreground: 186 70% 90%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 40 30% 95%;
 
-    /* Primary - Cyan Glow */
-    --primary: 186 80% 65%;
-    --primary-foreground: 215 55% 8%;
+    /* Primary - Gold */
+    --primary: 40 80% 55%;
+    --primary-foreground: 220 25% 8%;
 
-    /* Secondary - Muted Blue */
-    --secondary: 200 40% 30%;
-    --secondary-foreground: 186 70% 90%;
+    /* Secondary - Deep Velvet */
+    --secondary: 350 60% 25%;
+    --secondary-foreground: 40 30% 95%;
 
-    --muted: 215 40% 20%;
-    --muted-foreground: 200 30% 60%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 186 80% 45%;
-    --accent-foreground: 215 55% 8%;
+    --accent: 40 70% 50%;
+    --accent-foreground: 220 25% 8%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 40% 25%;
-    --input: 200 40% 25%;
-    --ring: 186 80% 65%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 40 80% 55%;
 
     --radius: 0.5rem;
 
-    /* E-Week Custom Colors */
-    --navy-deep: 215 55% 12%;
-    --navy-mid: 200 40% 25%;
-    --navy-light: 195 35% 40%;
-    --cyan-glow: 186 80% 65%;
-    --cyan-bright: 186 90% 80%;
-    --cyan-soft: 186 60% 40%;
+    /* E-Week Cinema Colors */
+    --navy-deep: 220 25% 8%;
+    --navy-mid: 220 20% 15%;
+    --navy-light: 220 15% 25%;
+    --gold: 40 80% 55%;
+    --gold-bright: 45 90% 65%;
+    --gold-soft: 40 60% 40%;
     
-    /* Accent Colors */
+    /* Velvet & Accent Colors */
+    --velvet: 350 60% 25%;
+    --velvet-bright: 350 70% 40%;
     --accent-red: 0 70% 45%;
     --accent-yellow: 40 90% 55%;
     --accent-green: 85 50% 50%;
 
+    /* Cinema Glows */
+    --cyan-glow: 40 80% 55%;
+    --cyan-bright: 45 90% 70%;
+    --cyan-soft: 40 60% 40%;
+
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(215 55% 8%) 0%, hsl(215 55% 15%) 50%, hsl(200 40% 20%) 100%);
-    --gradient-cyan: linear-gradient(135deg, hsl(186 80% 65%) 0%, hsl(186 60% 40%) 100%);
-    --gradient-warm: linear-gradient(135deg, hsl(40 90% 55%) 0%, hsl(30 80% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 25% 5%) 0%, hsl(220 20% 12%) 50%, hsl(350 30% 15%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 80% 55%) 0%, hsl(30 70% 45%) 100%);
+    --gradient-velvet: linear-gradient(135deg, hsl(350 60% 25%) 0%, hsl(350 50% 18%) 100%);
     
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(186 80% 65% / 0.3);
-    --shadow-glow-strong: 0 0 60px hsl(186 80% 65% / 0.5), 0 0 120px hsl(186 80% 65% / 0.2);
+    --shadow-glow: 0 0 30px hsl(40 80% 55% / 0.3);
+    --shadow-glow-strong: 0 0 60px hsl(40 80% 55% / 0.5), 0 0 120px hsl(40 80% 55% / 0.2);
     --shadow-red: 0 0 30px hsl(0 70% 45% / 0.4);
     --shadow-yellow: 0 0 30px hsl(40 90% 55% / 0.4);
     --shadow-green: 0 0 30px hsl(85 50% 50% / 0.4);
 
     /* Typography */
-    --font-display: 'Orbitron', sans-serif;
-    --font-heading: 'Rajdhani', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Cinzel', serif;
+    --font-heading: 'Raleway', sans-serif;
+    --font-body: 'Raleway', sans-serif;
 
-    --sidebar-background: 215 55% 10%;
-    --sidebar-foreground: 186 70% 90%;
-    --sidebar-primary: 186 80% 65%;
-    --sidebar-primary-foreground: 215 55% 8%;
-    --sidebar-accent: 200 40% 20%;
-    --sidebar-accent-foreground: 186 70% 90%;
-    --sidebar-border: 200 40% 25%;
-    --sidebar-ring: 186 80% 65%;
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 40 30% 95%;
+    --sidebar-primary: 40 80% 55%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 40 80% 55%;
   }
 
   .dark {
-    --background: 215 55% 8%;
-    --foreground: 186 70% 90%;
+    --background: 220 25% 5%;
+    --foreground: 40 30% 95%;
   }
 }
 
@@ -115,32 +122,44 @@
     height: 100%;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.03;
+    opacity: 0.04;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  /* Glowing Text */
+  /* Glowing Text - Gold */
   .text-glow {
     text-shadow: 
-      0 0 10px hsl(var(--cyan-glow) / 0.5),
-      0 0 20px hsl(var(--cyan-glow) / 0.3),
-      0 0 40px hsl(var(--cyan-glow) / 0.2);
+      0 0 10px hsl(var(--gold) / 0.5),
+      0 0 20px hsl(var(--gold) / 0.3),
+      0 0 40px hsl(var(--gold) / 0.2);
   }
 
   .text-glow-strong {
     text-shadow: 
-      0 0 10px hsl(var(--cyan-glow)),
-      0 0 30px hsl(var(--cyan-glow) / 0.8),
-      0 0 60px hsl(var(--cyan-glow) / 0.5),
-      0 0 100px hsl(var(--cyan-glow) / 0.3);
+      0 0 10px hsl(var(--gold)),
+      0 0 30px hsl(var(--gold) / 0.8),
+      0 0 60px hsl(var(--gold) / 0.5),
+      0 0 100px hsl(var(--gold) / 0.3);
   }
 
-  /* Circuit Pattern Background */
-  .circuit-bg {
+  /* Cinema Curtain Pattern */
+  .curtain-bg {
+    background: 
+      linear-gradient(90deg, hsl(var(--velvet) / 0.3) 0%, transparent 10%, transparent 90%, hsl(var(--velvet) / 0.3) 100%),
+      repeating-linear-gradient(
+        90deg,
+        hsl(var(--velvet) / 0.05) 0px,
+        transparent 2px,
+        transparent 20px
+      );
+  }
+
+  /* Film Strip Background */
+  .filmstrip-bg {
     background-image: 
-      linear-gradient(90deg, hsl(var(--cyan-glow) / 0.03) 1px, transparent 1px),
-      linear-gradient(hsl(var(--cyan-glow) / 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+      linear-gradient(90deg, hsl(var(--gold) / 0.02) 1px, transparent 1px),
+      linear-gradient(hsl(var(--gold) / 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
   }
 
   /* Glitch Effect */
@@ -167,7 +186,7 @@
 
   .glitch::after {
     animation: glitch-2 0.3s infinite linear alternate-reverse;
-    color: hsl(var(--cyan-glow));
+    color: hsl(var(--gold));
     clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
   }
 
@@ -177,22 +196,28 @@
     height: 30px;
     background: hsl(var(--navy-mid));
     border-radius: 4px;
+    border: 1px solid hsl(var(--gold) / 0.3);
     transition: all 0.3s ease;
   }
 
   .sprocket:hover,
   .sprocket.active {
-    background: hsl(var(--cyan-glow));
-    box-shadow: 0 0 15px hsl(var(--cyan-glow) / 0.8);
+    background: hsl(var(--gold));
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.8);
   }
 
   /* Spotlight Effect */
   .spotlight {
     background: radial-gradient(
       ellipse at center,
-      hsl(var(--accent-yellow) / 0.15) 0%,
+      hsl(var(--gold) / 0.15) 0%,
       transparent 70%
     );
+  }
+
+  /* Velvet Curtain Effect */
+  .velvet-glow {
+    box-shadow: inset 0 0 100px hsl(var(--velvet) / 0.3);
   }
 
   /* Scrollbar Styling */
@@ -206,12 +231,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--cyan-soft));
+    background: hsl(var(--gold-soft));
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--cyan-glow));
+    background: hsl(var(--gold));
   }
 }
 
@@ -228,8 +253,8 @@
     animation: light-leak 8s ease-in-out infinite;
   }
 
-  .animate-scan-line {
-    animation: scan-line 4s linear infinite;
+  .animate-flicker {
+    animation: flicker 3s ease-in-out infinite;
   }
 }
 
@@ -241,10 +266,10 @@
 
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 20px hsl(var(--cyan-glow) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.3);
   }
   50% { 
-    box-shadow: 0 0 40px hsl(var(--cyan-glow) / 0.6), 0 0 80px hsl(var(--cyan-glow) / 0.3);
+    box-shadow: 0 0 40px hsl(var(--gold) / 0.6), 0 0 80px hsl(var(--gold) / 0.3);
   }
 }
 
@@ -259,9 +284,12 @@
   }
 }
 
-@keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+  52% { opacity: 1; }
+  54% { opacity: 0.9; }
+  56% { opacity: 1; }
 }
 
 @keyframes glitch-1 {
@@ -282,7 +310,7 @@
   100% { transform: translate(0); }
 }
 
-@keyframes film-scroll {
+@keyframes curtain-shimmer {
   0% { background-position: 0 0; }
   100% { background-position: 100px 0; }
 }

@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
-import { Rocket, Instagram, Twitter, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Film, Instagram, Twitter, Linkedin, Mail, MapPin, Phone, Star } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-background border-t border-border/50 pt-16 pb-8 overflow-hidden">
+    <footer className="relative bg-background border-t border-gold/20 pt-16 pb-8 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 circuit-bg opacity-5" />
+      <div className="absolute inset-0 filmstrip-bg opacity-10" />
+      <div className="absolute inset-0 curtain-bg" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Main Footer Content */}
@@ -21,26 +22,31 @@ const Footer = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="relative">
-                <Rocket className="w-10 h-10 text-cyan-glow" />
-                <div className="absolute inset-0 w-10 h-10 bg-cyan-glow/30 blur-xl" />
+                <Film className="w-10 h-10 text-gold" />
+                <div className="absolute inset-0 w-10 h-10 bg-gold/30 blur-xl" />
               </div>
               <div>
-                <h3 className="font-display text-2xl font-bold text-cyan-glow text-glow">
+                <h3 className="font-display text-2xl font-bold text-gold text-glow tracking-wider">
                   E-WEEK 2026
                 </h3>
-                <p className="font-heading text-sm text-muted-foreground tracking-widest">
-                  BITS PILANI
+                <p className="font-heading text-sm text-muted-foreground tracking-[0.2em]">
+                  A BITS PILANI PRODUCTION
                 </p>
               </div>
             </div>
-            <p className="text-muted-foreground max-w-md leading-relaxed mb-6">
+            <p className="text-muted-foreground max-w-md leading-relaxed mb-6 font-heading">
               The Director's Cut of entrepreneurship. Join us for 7 days of 
-              innovation, competition, and the creation of tomorrow's 
-              business leaders.
+              blockbuster innovation, dramatic competition, and the creation 
+              of tomorrow's business legends.
             </p>
-            <p className="font-display text-lg text-cyan-glow">
-              February 9-15, 2026
-            </p>
+            <div className="flex items-center gap-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+              ))}
+              <span className="ml-2 text-muted-foreground text-sm font-heading">
+                "A must-see event" - The Campus Review
+              </span>
+            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -50,13 +56,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h4 className="font-display text-lg text-foreground mb-6">Quick Links</h4>
+            <h4 className="font-display text-lg text-foreground mb-6 tracking-wider">Showtimes</h4>
             <ul className="space-y-3">
-              <FooterLink href="#timeline">Timeline</FooterLink>
+              <FooterLink href="#timeline">Schedule</FooterLink>
               <FooterLink href="#dehack">DeHack</FooterLink>
               <FooterLink href="#bedrock">Bedrock</FooterLink>
               <FooterLink href="#events">All Events</FooterLink>
-              <FooterLink href="#register">Register Now</FooterLink>
+              <FooterLink href="#register">Get Tickets</FooterLink>
             </ul>
           </motion.div>
 
@@ -67,27 +73,27 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h4 className="font-display text-lg text-foreground mb-6">Contact</h4>
+            <h4 className="font-display text-lg text-foreground mb-6 tracking-wider">Box Office</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-cyan-glow flex-shrink-0 mt-0.5" />
-                <span className="text-muted-foreground text-sm">
+                <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                <span className="text-muted-foreground text-sm font-heading">
                   BITS Pilani, Pilani Campus,<br />
                   Rajasthan 333031
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-cyan-glow" />
+                <Mail className="w-5 h-5 text-gold" />
                 <a 
                   href="mailto:eweek@pilani.bits-pilani.ac.in"
-                  className="text-muted-foreground text-sm hover:text-cyan-glow transition-colors"
+                  className="text-muted-foreground text-sm hover:text-gold transition-colors font-heading"
                 >
                   eweek@pilani.bits-pilani.ac.in
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-cyan-glow" />
-                <span className="text-muted-foreground text-sm">
+                <Phone className="w-5 h-5 text-gold" />
+                <span className="text-muted-foreground text-sm font-heading">
                   +91 1596 515XXX
                 </span>
               </li>
@@ -96,7 +102,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-8" />
 
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -129,7 +135,7 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-xs font-heading"
+            className="text-muted-foreground text-xs font-heading tracking-wider"
           >
             Directed by CEL | Produced with ❤️ at BITS Pilani
           </motion.p>
@@ -142,8 +148,8 @@ const Footer = () => {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <p className="font-display text-xs text-muted-foreground/50 uppercase tracking-[0.3em]">
-            The End
+          <p className="font-display text-xs text-muted-foreground/50 uppercase tracking-[0.5em]">
+            Fin
           </p>
           <div className="mt-4 flex justify-center gap-1">
             {[...Array(3)].map((_, i) => (
@@ -151,7 +157,7 @@ const Footer = () => {
                 key={i}
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
-                className="w-1 h-1 bg-cyan-glow rounded-full"
+                className="w-1 h-1 bg-gold rounded-full"
               />
             ))}
           </div>
@@ -165,7 +171,7 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
   <li>
     <a
       href={href}
-      className="text-muted-foreground text-sm hover:text-cyan-glow transition-colors font-heading"
+      className="text-muted-foreground text-sm hover:text-gold transition-colors font-heading tracking-wider"
     >
       {children}
     </a>
@@ -176,7 +182,7 @@ const SocialLink = ({ href, icon: Icon, label }: { href: string; icon: any; labe
   <a
     href={href}
     aria-label={label}
-    className="w-10 h-10 flex items-center justify-center rounded-full border border-border hover:border-cyan-glow hover:bg-cyan-glow/10 text-muted-foreground hover:text-cyan-glow transition-all duration-300"
+    className="w-10 h-10 flex items-center justify-center rounded-full border border-gold/30 hover:border-gold hover:bg-gold/10 text-muted-foreground hover:text-gold transition-all duration-300"
   >
     <Icon className="w-5 h-5" />
   </a>

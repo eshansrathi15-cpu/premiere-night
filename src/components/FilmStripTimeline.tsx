@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
+import { Film, Clapperboard, Trophy, Sparkles } from "lucide-react";
 
 interface TimelineDay {
   day: number;
@@ -8,16 +9,17 @@ interface TimelineDay {
   subtitle: string;
   isDeHack?: boolean;
   isFinale?: boolean;
+  icon: any;
 }
 
 const timelineData: TimelineDay[] = [
-  { day: 1, date: "Feb 9", title: "Opening Ceremony", subtitle: "The Premiere Begins" },
-  { day: 2, date: "Feb 10", title: "DeHack Kickoff", subtitle: "120 Hours Start", isDeHack: true },
-  { day: 3, date: "Feb 11", title: "DeHack Day 2", subtitle: "Building Dreams", isDeHack: true },
-  { day: 4, date: "Feb 12", title: "DeHack Day 3", subtitle: "Ideas Take Shape", isDeHack: true },
-  { day: 5, date: "Feb 13", title: "DeHack Day 4", subtitle: "The Grind Continues", isDeHack: true },
-  { day: 6, date: "Feb 14", title: "DeHack Finale", subtitle: "Submissions Due", isDeHack: true },
-  { day: 7, date: "Feb 15", title: "BedRock", subtitle: "The Grand Finale", isFinale: true },
+  { day: 1, date: "Feb 9", title: "Opening Night", subtitle: "The Red Carpet Premiere", icon: Film },
+  { day: 2, date: "Feb 10", title: "DeHack Begins", subtitle: "Act I: The Setup", isDeHack: true, icon: Clapperboard },
+  { day: 3, date: "Feb 11", title: "DeHack Day 2", subtitle: "Act II: Rising Action", isDeHack: true, icon: Clapperboard },
+  { day: 4, date: "Feb 12", title: "DeHack Day 3", subtitle: "Act III: The Climax", isDeHack: true, icon: Clapperboard },
+  { day: 5, date: "Feb 13", title: "DeHack Day 4", subtitle: "Act IV: The Twist", isDeHack: true, icon: Clapperboard },
+  { day: 6, date: "Feb 14", title: "DeHack Finale", subtitle: "Act V: Resolution", isDeHack: true, icon: Clapperboard },
+  { day: 7, date: "Feb 15", title: "BedRock", subtitle: "The Grand Finale", isFinale: true, icon: Trophy },
 ];
 
 const FilmStripTimeline = () => {
@@ -27,9 +29,10 @@ const FilmStripTimeline = () => {
   return (
     <section id="timeline" className="py-24 bg-background relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 circuit-bg opacity-20" />
+      <div className="absolute inset-0 filmstrip-bg opacity-30" />
+      <div className="absolute inset-0 curtain-bg" />
       
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,11 +41,18 @@ const FilmStripTimeline = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            The <span className="text-cyan-glow text-glow">Screenplay</span>
+          <div className="flex justify-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-gold" />
+            <span className="font-heading text-sm uppercase tracking-[0.3em] text-gold">
+              The Screenplay
+            </span>
+            <Sparkles className="w-5 h-5 text-gold" />
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-wide">
+            7 Days of <span className="text-gold text-glow">Epic Cinema</span>
           </h2>
-          <p className="font-heading text-xl text-muted-foreground">
-            7 Days of Entrepreneurial Excellence
+          <p className="font-heading text-lg text-muted-foreground">
+            Every great story unfolds in acts
           </p>
         </motion.div>
 
@@ -58,7 +68,6 @@ const FilmStripTimeline = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.03 }}
                 className="sprocket hidden md:block"
-                style={{ transform: `rotate(${Math.random() * 2 - 1}deg)` }}
               />
             ))}
           </div>
@@ -66,97 +75,105 @@ const FilmStripTimeline = () => {
           {/* Scrollable Film Strip */}
           <div
             ref={scrollRef}
-            className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-cyan-soft scrollbar-track-navy-deep"
+            className="overflow-x-auto pb-4 scrollbar-thin"
           >
             <div className="flex gap-0 min-w-max">
-              {timelineData.map((item, index) => (
-                <motion.div
-                  key={item.day}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  onMouseEnter={() => setActiveDay(item.day)}
-                  className={`relative group cursor-pointer ${
-                    item.isDeHack ? "w-40 md:w-52" : item.isFinale ? "w-48 md:w-64" : "w-44 md:w-56"
-                  }`}
-                >
-                  {/* Film Frame */}
-                  <div
-                    className={`
-                      relative h-64 md:h-80 border-4 transition-all duration-500
-                      ${activeDay === item.day 
-                        ? item.isFinale 
-                          ? "border-accent-yellow shadow-glow-yellow bg-accent-yellow/5" 
-                          : item.isDeHack 
-                            ? "border-cyan-glow shadow-glow bg-cyan-glow/5" 
-                            : "border-accent-red shadow-glow-red bg-accent-red/5"
-                        : "border-navy-mid bg-card/50"
-                      }
-                    `}
+              {timelineData.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.day}
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    onMouseEnter={() => setActiveDay(item.day)}
+                    className={`relative group cursor-pointer ${
+                      item.isDeHack ? "w-40 md:w-52" : item.isFinale ? "w-48 md:w-64" : "w-44 md:w-56"
+                    }`}
                   >
-                    {/* Frame Number */}
-                    <div className="absolute top-2 left-2 font-display text-xs text-muted-foreground">
-                      {String(item.day).padStart(2, "0")}
-                    </div>
+                    {/* Film Frame */}
+                    <div
+                      className={`
+                        relative h-64 md:h-80 border-4 transition-all duration-500
+                        ${activeDay === item.day 
+                          ? item.isFinale 
+                            ? "border-gold shadow-glow-yellow bg-gold/5" 
+                            : item.isDeHack 
+                              ? "border-velvet-bright shadow-glow-red bg-velvet/10" 
+                              : "border-gold shadow-glow bg-gold/5"
+                          : "border-navy-mid bg-card/50"
+                        }
+                      `}
+                    >
+                      {/* Frame Number - Film Style */}
+                      <div className="absolute top-2 left-2 font-display text-xs text-muted-foreground flex items-center gap-1">
+                        <span className="text-gold">SCENE</span> {String(item.day).padStart(2, "0")}
+                      </div>
 
-                    {/* Frame Content */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                      {/* Date */}
-                      <span
-                        className={`font-display text-sm mb-2 ${
-                          item.isFinale ? "text-accent-yellow" : item.isDeHack ? "text-cyan-glow" : "text-accent-red"
-                        }`}
-                      >
-                        {item.date}
-                      </span>
+                      {/* Frame Content */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+                        {/* Icon */}
+                        <Icon className={`w-8 h-8 mb-3 ${
+                          item.isFinale ? "text-gold" : item.isDeHack ? "text-velvet-bright" : "text-gold"
+                        }`} />
 
-                      {/* Title */}
-                      <h3
-                        className={`font-display text-lg md:text-xl font-bold mb-2 transition-all duration-300 ${
-                          activeDay === item.day
-                            ? item.isFinale
-                              ? "text-accent-yellow"
-                              : item.isDeHack
-                              ? "text-cyan-glow text-glow"
-                              : "text-foreground"
-                            : "text-foreground/80"
-                        }`}
-                      >
-                        {item.title}
-                      </h3>
+                        {/* Date */}
+                        <span
+                          className={`font-heading text-sm mb-2 uppercase tracking-wider ${
+                            item.isFinale ? "text-gold" : item.isDeHack ? "text-velvet-bright" : "text-gold"
+                          }`}
+                        >
+                          {item.date}
+                        </span>
 
-                      {/* Subtitle */}
-                      <p className="font-heading text-sm text-muted-foreground">
-                        {item.subtitle}
-                      </p>
+                        {/* Title */}
+                        <h3
+                          className={`font-display text-lg md:text-xl font-bold mb-2 transition-all duration-300 ${
+                            activeDay === item.day
+                              ? item.isFinale
+                                ? "text-gold text-glow"
+                                : item.isDeHack
+                                ? "text-foreground"
+                                : "text-gold text-glow"
+                              : "text-foreground/80"
+                          }`}
+                        >
+                          {item.title}
+                        </h3>
 
-                      {/* DeHack Indicator */}
-                      {item.isDeHack && (
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                          <span className="px-3 py-1 bg-cyan-glow/20 border border-cyan-glow/50 rounded-full text-xs font-heading text-cyan-glow">
-                            DEHACK IS LIVE
-                          </span>
-                        </div>
+                        {/* Subtitle */}
+                        <p className="font-heading text-sm text-muted-foreground italic">
+                          {item.subtitle}
+                        </p>
+
+                        {/* DeHack Indicator */}
+                        {item.isDeHack && (
+                          <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                            <span className="px-3 py-1 bg-velvet/30 border border-velvet-bright/50 rounded-full text-xs font-heading text-velvet-bright uppercase tracking-wider">
+                              Now Filming
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Finale Indicator */}
+                        {item.isFinale && (
+                          <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                            <span className="px-3 py-1 bg-gold/20 border border-gold/50 rounded-full text-xs font-heading text-gold uppercase tracking-wider">
+                              Season Finale
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Connector for DeHack days */}
+                      {item.isDeHack && index < timelineData.length - 1 && timelineData[index + 1].isDeHack && (
+                        <div className="absolute right-0 top-1/2 w-4 h-1 bg-velvet-bright/50 translate-x-full -translate-y-1/2 z-10" />
                       )}
-
-                      {/* Finale Indicator */}
-                      {item.isFinale && (
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                          <span className="px-3 py-1 bg-accent-yellow/20 border border-accent-yellow/50 rounded-full text-xs font-heading text-accent-yellow">
-                            GRAND FINALE
-                          </span>
-                        </div>
-                      )}
                     </div>
-
-                    {/* Connector for DeHack days */}
-                    {item.isDeHack && index < timelineData.length - 1 && timelineData[index + 1].isDeHack && (
-                      <div className="absolute right-0 top-1/2 w-4 h-1 bg-cyan-glow/50 translate-x-full -translate-y-1/2 z-10" />
-                    )}
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
@@ -176,8 +193,8 @@ const FilmStripTimeline = () => {
         </div>
 
         {/* Scroll Hint */}
-        <p className="text-center mt-8 text-muted-foreground text-sm font-heading">
-          ← Scroll horizontally to explore →
+        <p className="text-center mt-8 text-muted-foreground text-sm font-heading tracking-wider">
+          ← Scroll through the screenplay →
         </p>
       </div>
     </section>
